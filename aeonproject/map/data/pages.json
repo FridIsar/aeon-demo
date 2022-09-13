@@ -1,0 +1,40 @@
+{
+	"Þingvellir á Þórsnesi": {
+		"contents": [{
+				"type": "text",
+				"content": "Here goes the content for a paragraph. Bla bla."
+			},
+			{
+				"type": "image",
+				"content": "image_name.jpg"
+			},
+			{
+				"type": "text",
+				"content": "Here's another paragraph. Bla bla."
+			},
+			{
+				"type": "image",
+				"content": "image_name2.jpg"
+			},
+			{
+				"type": "text",
+				"content": "And a last one. Bla bla bla."
+			}
+		]
+	},
+	"Blótsteinn": {
+		"contents": [{
+				"type": "text",
+				"content": "Here goes the content for a paragraph. Bla bla."
+			},
+			{
+				"type": "text",
+				"content": "Here's another paragraph. Bla bla."
+			},
+			{
+				"type": "image",
+				"content": "image_name3.jpg"
+			}
+		]
+	}
+}

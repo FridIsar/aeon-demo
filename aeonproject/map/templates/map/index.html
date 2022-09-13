@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AEON</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'map/css/map.css' %}">
+    <link rel="icon" href="{% static 'map/images/waypoint-aeon.svg' %}">
+    <script src="{% static 'map/js/wordcloud.js' %}"></script>
+    <script src="{% static 'map/js/main.js' %}"></script>
+    <script src="{% static 'map/js/modal.js' %}"></script>
+    <script src="{% static 'map/js/generatepage.js' %}"></script>
+    <script src="https://unpkg.com/chart.js@3"></script>
+    <script src="https://unpkg.com/chartjs-chart-wordcloud@3"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <style>
+        /*body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }*/
+        </style>
+    </head>
+    <body>
+        <div class="main flex-container mobile-adaptive">
+            <div id="map" class="map"></div>
+            <div id="side-nav" class="side-nav flex-container">
+                <button id="btn">coucou</button>
+                <div id="project-list" class="flex-container"></div>
+                <div id="word-cloud" class="">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="modal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span id="return-modal" class="icon-modal">&laquo;</span>
+              <span id="close-modal" class="icon-modal">&times;</span>
+              <h2 id="modal-title">Modal Header</h2>
+            </div>
+            <div id="modal-body">
+              <p>Some text in the Modal Body</p>
+              <p>Some other text...</p>
+            </div>
+            <div class="modal-footer">
+              <h3> </h3>
+            </div>
+          </div>
+        </div>
+
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibmlkbHkiLCJhIjoiY2swY2tyaGx5MDBscDNucG1ycm9pZG1tMSJ9.Npj4mCdM7VhNQmYcfMxcpA';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/nidly/cl6vc6on7006p14n00301xz8j', // style URL
+        center: [-18.438331, 64.909926], // starting position [lng, lat]
+        zoom: 5.54, // starting zoom
+        projection: 'globe' // display the map as a 3D globe
+    });
+
+    map.on('style.load', () => {
+        map.setFog({}); // Set the default atmosphere style
+    });
+    var allWords = JSON.parse('{{ all_words | escapejs }}');
+    var pagesDict = JSON.parse('{{ pages_dict | escapejs }}');
+    </script>
+
+    </body>
+    </html>
