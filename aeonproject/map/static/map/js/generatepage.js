@@ -1,19 +1,22 @@
 var occursPageBackup = null;
+var occursTitleBackup = null;
 
 function generateOccursPage(word)	{
 	let content = document.createElement('div');
-	let title = "There are " + allWords[word].occurrences + " occurrences of \"" + word + "\" in the following file(s):"
+	let title = "There are " + allWords[word].occurrences + " occurrences of <span style='color: #ECA72C'>" + word + "</span> in the following project(s):"
 
-	var ul = document.createElement('ul');
+	var parent = document.createElement('div');
 	let pages = allWords[word].pages;
 	for (let i = 0; i < pages.length; i++)	{
-		var li = document.createElement('li');
-		li.innerHTML = pages[i];
-		li.setAttribute('onclick',`generateTargetPage("${pages[i]}", ${true});`);
-		ul.appendChild(li)
+		var child = document.createElement('div');
+		child.innerHTML = pages[i];
+		child.setAttribute('onclick',`generateTargetPage("${pages[i]}", ${true});`);
+		child.classList.add('button')
+		parent.appendChild(child)
 	}
-	content.appendChild(ul)
+	content.appendChild(parent)
 	occursPageBackup = content.innerHTML;
+	occursTitleBackup = title;
 	openModal(title, content.innerHTML)
 }
 
@@ -36,7 +39,7 @@ function generateTargetPage(pageTitle, fromOccursPage)	{
 	var arrow = document.getElementById("return-modal");
 	if (fromOccursPage)	{
 		arrow.onclick = function() {
-    		openModal(pageTitle, occursPageBackup)
+    		openModal(occursTitleBackup, occursPageBackup)
     		arrow.onclick = function() {
     		modal.style.display = "none";
   		}

@@ -15,7 +15,7 @@ body {
 .main {
 	height:100vh;
 	width: 100vw;
-	background-color: $primary-color;
+	background-color: $secondary-color;
 }
 
 .mobile-adaptive	{
@@ -32,21 +32,44 @@ body {
 #project-list	{
 	overflow: auto;
 	flex-direction: column;
-	flex: 2;
+	flex: 20;
+}
+
+.separator	{
+	width: 0;
+	min-width: 100%;
+	flex: 0.5;
+	background-color: $background-color
 }
 
 #word-cloud	{
 	width: 0;
 	min-width: 100%;
-	flex: 2;
+	flex: 20;
+	background-color: $secondary-color;
+}
+
+.button-group	{
+	display: flex;
+	flex-direction: column;
+	background-color: $primary-color;
+	border-radius: 15px;
+	margin: 0.5rem;
+}
+
+
+.button-lead	{
+	margin: 0.5rem !important;
+	font-weight: bold;
 }
 
 .button	{
+	padding: 1.2rem 0rem;
+	text-transform: uppercase;
 	background-color: $secondary-color;
 	flex-grow: 1;
 	text-align: center;
-	margin: 0.5rem;
-	padding: 2rem 0rem;
+	margin: 0.5rem 1rem;
 	cursor: pointer;
 	border-radius: 10px;
 	&:hover {

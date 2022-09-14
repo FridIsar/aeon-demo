@@ -26,8 +26,8 @@
         <div class="main flex-container mobile-adaptive">
             <div id="map" class="map"></div>
             <div id="side-nav" class="side-nav flex-container">
-                <button id="btn">coucou</button>
                 <div id="project-list" class="flex-container"></div>
+                <div class="separator"> </div>
                 <div id="word-cloud" class="">
                     <canvas id="canvas"></canvas>
                 </div>
@@ -44,8 +44,6 @@
               <h2 id="modal-title">Modal Header</h2>
             </div>
             <div id="modal-body">
-              <p>Some text in the Modal Body</p>
-              <p>Some other text...</p>
             </div>
             <div class="modal-footer">
               <h3> </h3>
@@ -66,6 +64,33 @@
     map.on('style.load', () => {
         map.setFog({}); // Set the default atmosphere style
     });
+
+    map.on('click', (event) => {
+  // If the user clicked on one of your markers, get its information.
+  const features = map.queryRenderedFeatures(event.point, {
+    layers: ['thingvellir'] // replace with your layer name
+  });
+  if (!features.length) {
+    return;
+  }
+  const feature = features[0];
+  generateTargetPage("Þingvellir á Þórsnesi", false);
+});
+const target = {
+        // center: [74.5, 40],
+        // zoom: 2
+        center: [-22.701906, 65.063636],
+        zoom: 12.5,
+        bearing: 130,
+        pitch: 75
+    }
+        map.flyTo({
+            ...target, // Fly to the selected target
+            duration: 12000, // Animate over 12 seconds
+            essential: true // This animation is considered essential with
+            //respect to prefers-reduced-motion
+        });
+
     var allWords = JSON.parse('{{ all_words | escapejs }}');
     var pagesDict = JSON.parse('{{ pages_dict | escapejs }}');
     </script>

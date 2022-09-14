@@ -224,9 +224,15 @@ const chart = new Chart(document.getElementById("canvas").getContext("2d"), {
   },
   options: {
   	'onClick' : function (evt, item) {
-                        let wordLabel = item[0].element.text;
-                        generateOccursPage(wordLabel);
+                        if (item[0])  {
+                          let wordLabel = item[0].element.text;
+                          generateOccursPage(wordLabel);
+                        }
                     },
+    onHover: (event, chartElement) => {
+    const target = event.native ? event.native.target : event.target;
+    target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+},
   	events: ["click", "mousemove"],
     title: {
       display: false,
@@ -234,7 +240,7 @@ const chart = new Chart(document.getElementById("canvas").getContext("2d"), {
     },
     plugins: {
       legend: {
-        display: false
+        display: false,
       },
       tooltip: {
       	enabled: false
@@ -242,11 +248,12 @@ const chart = new Chart(document.getElementById("canvas").getContext("2d"), {
     },
     elements: {
     	word: {
-    		maxRotation: 0,
+    		maxRotation: 0,hoverColor: '#ECA72C', family: 'Roboto, sans-serif', color: '#8d8d8a'
     	}
     }
   }
 });
+console.log(chart)
 }
 
 
