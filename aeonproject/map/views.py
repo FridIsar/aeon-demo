@@ -12,7 +12,7 @@ def index(request):
     pages_dict = json.load(pages_file)
     for title, pg_dict in pages_dict.items():
         for piece in pg_dict["contents"]:
-            print("wtf is ",piece)
+            #print("wtf is ",piece)
             if piece['type'] == "text":
                 word_list = re.sub('['+string.punctuation+']', '', piece['content']).split()
                 for word in word_list:
@@ -24,7 +24,7 @@ def index(request):
                         if title not in all_words[word]["pages"]:
                             all_words[word]["pages"].append(title)
 
-    print(all_words)
+    #print(all_words)
     context["all_words"] = json.dumps(all_words)
     context["pages_dict"] = json.dumps(pages_dict)
 

@@ -80,13 +80,13 @@ const target = {
         // center: [74.5, 40],
         // zoom: 2
         center: [-22.701906, 65.063636],
-        zoom: 12.5,
+        zoom: 15,
         bearing: 130,
         pitch: 75
     }
         map.flyTo({
             ...target, // Fly to the selected target
-            duration: 12000, // Animate over 12 seconds
+            duration: 6000, // Animate over 12 seconds
             essential: true // This animation is considered essential with
             //respect to prefers-reduced-motion
         });
