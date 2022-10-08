@@ -30,9 +30,16 @@ function generateTargetPage(pageTitle, fromOccursPage)	{
 			content.appendChild(img)
 		}
 		else {
-			let p = document.createElement('p');
-			p.innerHTML = pageContents[i].content;
-			content.appendChild(p)
+			if (pageContents[i].type == "text")	{
+				let p = document.createElement('p');
+				p.innerHTML = pageContents[i].content;
+				content.appendChild(p)
+			}
+			else {
+				let div = document.createElement('div');
+				div.innerHTML = `<video class="modal-video" autoplay><source src="${staticImageUrl}${pageContents[i].content}" type='video/mp4'></video>`
+				content.appendChild(div)
+			}
 		}
 
 	}

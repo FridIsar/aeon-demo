@@ -19,6 +19,10 @@
 			{
 				"type": "text",
 				"content": "And a last one. Bla bla bla."
+			},
+			{
+				"type": "image",
+				"content": "image_name.jpg"
 			}
 		]
 	},
@@ -34,6 +38,13 @@
 			{
 				"type": "image",
 				"content": "image_name3.jpg"
+			}
+		]
+	},
+	"ThingVThorsnes video": {
+		"contents": [{
+				"type": "video",
+				"content": "thingv.mp4"
 			}
 		]
 	}

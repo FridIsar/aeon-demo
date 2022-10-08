@@ -34,6 +34,8 @@
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
 }
 
 /* Add Animation */
@@ -96,6 +98,10 @@
   padding: 2px 16px;
   background-color: #8d8d8a;
   color: white;
+}
+
+.modal-video {
+  width: 100%;
 }
 
 body {

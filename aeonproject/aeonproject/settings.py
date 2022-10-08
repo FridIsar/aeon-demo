@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 			'93.95.226.192', 
-			'aeon.is']
+			'aeon.is',
+            '127.0.0.1']
 
 
 # Application definition
