@@ -44,7 +44,7 @@
 	"ThingVThorsnes video": {
 		"contents": [{
 				"type": "video",
-				"content": "thingv.mp4"
+				"content": "output.mp4"
 			}
 		]
 	}

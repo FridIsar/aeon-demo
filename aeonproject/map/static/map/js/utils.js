@@ -138,8 +138,6 @@ const animatePath = async (
 
       let startTime;
   //const startBearing = -20;
-  //const startAltitude = 12000;
-  let pitch = 50;
   const pathDistance = turf.lineDistance(path)
 
   const frame = async (time) => {
@@ -151,38 +149,28 @@ const animatePath = async (
       lng: lng,
       lat: lat,
     };
-    if (animationPhase < 0.45 && startAltitude > 800) {
-      if (animationPhase > 0.05)  {
-        startBearing += 0.7;
-        startAltitude -= 10;
-        pitch+=0.05
-      }
-    }
 
+    let curAlt = (1/animationPhase**2) * 100 // ends at 200m
+
+    console.log(curAlt)
+    if (curAlt > 2000000) // Avoid too big number
+      startAltitude = 2000000
+    else
+      startAltitude = curAlt
+
+    let pitch = animationPhase * 78 // ends at 78°
+
+
+
+    if (animationPhase < 0.30) {
+    }
     else {
-      if (animationPhase >= 0.45 && animationPhase <= 0.9 && startAltitude > 500) {
-        startAltitude -= 13;
-        pitch+=0.1
-        startBearing += 0.4;
+      if (animationPhase <= 0.6) {
+        startBearing=190*(animationPhase-0.3)
       }
       else {
-        if (animationPhase > 0.9 && startAltitude > 250) {
-          startAltitude -= 13;
-          pitch+=0.6
-          startBearing += 0.4;
-        }
       }
     }
-
-    // Reduce the visible length of the line by using a line-gradient to cutoff the line
-    // animationPhase is a value between 0 and 1 that reprents the progress of the animation
-    // map.setPaintProperty("tp-line-line", "line-gradient", [
-    //   "step",
-    //   ["line-progress"],
-    //   "rgba(0, 0, 0, 0)",
-    //   animationPhase,
-    //   "rgba(0, 0, 0, 0)"
-    // ]);
 
     if (animationPhase > 1) {
       return;
@@ -203,6 +191,7 @@ const animatePath = async (
     const camera = map.getFreeCameraOptions();
     camera.setPitchBearing(pitch, bearing);
 
+    //console.log(startAltitude," alt, corrected position is ",correctedPosition)
     // set the position and altitude of the camera
   camera.position = mapboxgl.MercatorCoordinate.fromLngLat(
     correctedPosition,
