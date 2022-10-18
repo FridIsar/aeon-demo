@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'media-queries';
 @import 'modal';
+@import 'buttons';
 
 body {
 	margin: 0; padding: 0;
@@ -25,17 +26,14 @@ body {
 }
 
 .side-nav	{
-	flex-grow: 1;
+	flex: 2;
 	flex-direction: column;
 }
 
-#project-list	{
-	overflow: auto;
-	flex-direction: column;
-	flex: 20;
-}
-
-.separator	{
+.flex-title	{
+	color: $secondary-color;
+	text-align: center;
+	text-transform: uppercase;
 	width: 0;
 	min-width: 100%;
 	flex: 0.5;
@@ -49,38 +47,18 @@ body {
 	background-color: $secondary-color;
 }
 
-.button-group	{
-	display: flex;
-	flex-direction: column;
-	background-color: $primary-color;
-	border-radius: 15px;
-	margin: 0.5rem;
-}
-
-
-.button-lead	{
-	margin: 0.5rem !important;
-	font-weight: bold;
-}
-
-.button	{
-	padding: 1.2rem 0rem;
-	text-transform: uppercase;
-	background-color: $secondary-color;
-	flex-grow: 1;
-	text-align: center;
-	margin: 0.5rem 1rem;
-	cursor: pointer;
-	border-radius: 10px;
-	&:hover {
-		transition: 0.3s;
-    background-color: $accent-color;
-    color: white;
-  }
+#main-logo	{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 3;
+    padding: 5px;
 }
 
 .map	{
-	flex-grow: 4;
+	flex: 4;
 	//height:100vh;
 	// width: 100vw;
 	// @include lt-md {

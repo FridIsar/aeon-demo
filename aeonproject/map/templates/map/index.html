@@ -14,6 +14,7 @@
     <script src="{% static 'map/js/map.js' %}"></script>
     <script src="{% static 'map/js/flyroute.js' %}"></script>
     <script src="{% static 'map/js/modal.js' %}"></script>
+    <script src="{% static 'map/js/projectlist.js' %}"></script>
     <script src="{% static 'map/js/utils.js' %}"></script>
     <script src="{% static 'map/js/generatepage.js' %}"></script>
     <script src="https://unpkg.com/chart.js@3"></script>
@@ -21,17 +22,20 @@
     <script src="https://unpkg.com/chartjs-chart-wordcloud@3"></script>
     <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /*body { margin: 0; padding: 0; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }*/
         </style>
     </head>
     <body>
+        <img id="main-logo" src="{% static 'map/images/full-logo.png' %}">
         <div class="main flex-container mobile-adaptive">
             <div id="map" class="map"></div>
             <div id="side-nav" class="side-nav flex-container">
-                <div id="project-list" class="flex-container"></div>
-                <div class="separator"> </div>
+                <div class="flex-title">Projects</div>
+                <div id="project-list" class=""></div>
+                <div class="flex-title">Project words</div>
                 <div id="word-cloud" class="">
                     <canvas id="canvas"></canvas>
                 </div>

@@ -1,4 +1,4 @@
-function generate_wordcloud()	{
+function generateWordcloud()	{
 	const words = [
   { key: "word", value: 10 },
   { key: "words", value: 8 },

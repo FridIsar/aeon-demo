@@ -1,10 +1,12 @@
+var map = null;
+
 function initiateMap()	{
 	mapboxgl.accessToken = 'pk.eyJ1IjoibmlkbHkiLCJhIjoiY2swY2tyaGx5MDBscDNucG1ycm9pZG1tMSJ9.Npj4mCdM7VhNQmYcfMxcpA';
-	const map = new mapboxgl.Map({
+	map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/nidly/cl6vc6on7006p14n00301xz8j', // style URL
-        center: [-18.438331, 64.909926], // starting position [lng, lat]
-        zoom: 5.54, // starting zoom
+        center: [-22.7024353, 65.063452], // starting position [lng, lat]
+        zoom: 14.47, // starting zoom
         projection: 'globe' // display the map as a 3D globe
       });
 
@@ -26,7 +28,7 @@ map.setFog({
   'space-color': '#d8f2ff',
   'star-intensity': 0.0
 });
-startRoute(map);
+
 });
 
 	map.on('load', () => {

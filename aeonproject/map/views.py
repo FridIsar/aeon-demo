@@ -12,7 +12,6 @@ def index(request):
     pages_dict = json.load(pages_file)
     for title, pg_dict in pages_dict.items():
         for piece in pg_dict["contents"]:
-            #print("wtf is ",piece)
             if piece['type'] == "text":
                 word_list = re.sub('['+string.punctuation+']', '', piece['content']).split()
                 for word in word_list:
@@ -23,6 +22,20 @@ def index(request):
                         all_words[word]["occurrences"] += 1
                         if title not in all_words[word]["pages"]:
                             all_words[word]["pages"].append(title)
+        for sub_project in pg_dict["sub-projects"]:
+            for sub_title, sub_dict in sub_project.items():
+                for sub_piece in sub_dict["contents"]:
+                    if sub_piece['type'] == "text":
+                        word_list = re.sub('['+string.punctuation+']', '', sub_piece['content']).split()
+                        for word in word_list:
+                            word = word.lower()
+                            if word not in all_words:
+                                all_words[word] = {"occurrences": 1, "pages": [sub_title]}
+                            else:
+                                all_words[word]["occurrences"] += 1
+                                if sub_title not in all_words[word]["pages"]:
+                                    all_words[word]["pages"].append(sub_title)
+
 
     #print(all_words)
     context["all_words"] = json.dumps(all_words)

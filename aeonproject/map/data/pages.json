@@ -24,27 +24,31 @@
 				"type": "image",
 				"content": "image_name.jpg"
 			}
-		]
-	},
-	"Blótsteinn": {
-		"contents": [{
-				"type": "text",
-				"content": "Here goes the content for a paragraph. Bla bla."
+		],
+		"sub-projects": [{
+				"Blótsteinn": {
+					"contents": [{
+							"type": "text",
+							"content": "Here goes the content for a paragraph. Bla bla."
+						},
+						{
+							"type": "text",
+							"content": "Here's another paragraph. Bla bla."
+						},
+						{
+							"type": "image",
+							"content": "image_name3.jpg"
+						}
+					]
+				}
 			},
 			{
-				"type": "text",
-				"content": "Here's another paragraph. Bla bla."
-			},
-			{
-				"type": "image",
-				"content": "image_name3.jpg"
-			}
-		]
-	},
-	"ThingVThorsnes video": {
-		"contents": [{
-				"type": "video",
-				"content": "output.mp4"
+				"ThingVThorsnes video": {
+					"contents": [{
+						"type": "video",
+						"content": "output.mp4"
+					}]
+				}
 			}
 		]
 	}

@@ -105,6 +105,83 @@
   background-color: black;
 }
 
+.button-group {
+  flex-grow: 1;
+  margin: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.button-main {
+  flex-grow: 4 !important;
+}
+
+.button {
+  flex-grow: 1;
+  text-transform: uppercase;
+  background-color: #8d8d8a;
+  padding: 1.2rem 0rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  transition: 0.3s;
+  background-color: #ECA72C;
+  color: white;
+}
+
+.button:hover .arrow {
+  transition: 0.3s;
+  color: white;
+}
+
+.button:hover .arrow::after {
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  -o-transform: translateX(4px);
+  transform: translateX(4px);
+}
+
+.arrow {
+  color: black;
+  margin: 1em 0;
+}
+
+.arrow::after {
+  display: inline-block;
+  padding-left: 8px;
+  content: "\0279E";
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+#project-list {
+  overflow: auto;
+  flex-direction: column;
+  flex: 20;
+}
+
+#return-btn {
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #8d8d8a;
+}
+
+#return-btn:hover {
+  transition: 0.3s;
+  color: #ECA72C;
+}
+
+.button-split {
+  border-left: 1px solid gray;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -128,17 +205,14 @@ body {
 }
 
 .side-nav {
-  flex-grow: 1;
+  flex: 2;
   flex-direction: column;
 }
 
-#project-list {
-  overflow: auto;
-  flex-direction: column;
-  flex: 20;
-}
-
-.separator {
+.flex-title {
+  color: #D4D8D9;
+  text-align: center;
+  text-transform: uppercase;
   width: 0;
   min-width: 100%;
   flex: 0.5;
@@ -152,36 +226,16 @@ body {
   background-color: #D4D8D9;
 }
 
-.button-group {
-  display: flex;
-  flex-direction: column;
-  background-color: #8d8d8a;
-  border-radius: 15px;
-  margin: 0.5rem;
-}
-
-.button-lead {
-  margin: 0.5rem !important;
-  font-weight: bold;
-}
-
-.button {
-  padding: 1.2rem 0rem;
-  text-transform: uppercase;
-  background-color: #D4D8D9;
-  flex-grow: 1;
-  text-align: center;
-  margin: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-.button:hover {
-  transition: 0.3s;
-  background-color: #ECA72C;
-  color: white;
+#main-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+  padding: 5px;
 }
 
 .map {
-  flex-grow: 4;
+  flex: 4;
 }

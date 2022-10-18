@@ -152,7 +152,7 @@ const animatePath = async (
 
     let curAlt = (1/animationPhase**2) * 100 // ends at 200m
 
-    console.log(curAlt)
+    //console.log(curAlt)
     if (curAlt > 2000000) // Avoid too big number
       startAltitude = 2000000
     else

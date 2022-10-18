@@ -1,0 +1,76 @@
+.button-group {
+  flex-grow: 1;
+  margin: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.button-main {
+  flex-grow: 4 !important;
+}
+
+.button {
+  flex-grow: 1;
+  text-transform: uppercase;
+  background-color: #8d8d8a;
+  padding: 1.2rem 0rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  transition: 0.3s;
+  background-color: #ECA72C;
+  color: white;
+}
+
+.button:hover .arrow {
+  transition: 0.3s;
+  color: white;
+}
+
+.button:hover .arrow::after {
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  -o-transform: translateX(4px);
+  transform: translateX(4px);
+}
+
+.arrow {
+  color: black;
+  margin: 1em 0;
+}
+
+.arrow::after {
+  display: inline-block;
+  padding-left: 8px;
+  content: "\0279E";
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+#project-list {
+  overflow: auto;
+  flex-direction: column;
+  flex: 20;
+}
+
+#return-btn {
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #8d8d8a;
+}
+
+#return-btn:hover {
+  transition: 0.3s;
+  color: #ECA72C;
+}
+
+.button-split {
+  border-left: 1px solid gray;
+}

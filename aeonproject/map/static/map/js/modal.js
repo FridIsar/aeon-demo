@@ -1,4 +1,4 @@
-function prep_modal() {
+function prepModal() {
   console.log("modal")
   // Get the modal
   var modal = document.getElementById("modal");
